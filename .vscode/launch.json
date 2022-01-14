@@ -5,27 +5,27 @@
       "name": "Launch Debug",
       "request": "launch",
       "runtimeArgs": [
+        "run",
         "start:dev"
       ],
-      "runtimeExecutable": "yarn",
+      "runtimeExecutable": "npm",
       "skipFiles": [
         "<node_internals>/**"
       ],
-      "type": "pwa-node",
-      "preLaunchTask": "build:debug"
+      "type": "pwa-node"
     },
     {
       "name": "Launch Release",
       "request": "launch",
       "runtimeArgs": [
+        "run",
         "start:prod"
       ],
-      "runtimeExecutable": "yarn",
+      "runtimeExecutable": "npm",
       "skipFiles": [
         "<node_internals>/**"
       ],
-      "type": "pwa-node",
-      "preLaunchTask": "build:release"
+      "type": "pwa-node"
     }
   ],
 }
