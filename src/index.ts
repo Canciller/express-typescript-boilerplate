@@ -1,5 +1,3 @@
-import path from 'path';
-import hello from './test'
+import hello from './hello'
 
-console.log(path.join('/foo', 'bar', 'baz/asdf', 'quux', '..'));
-hello();
+console.log(hello());
