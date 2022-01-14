@@ -1,0 +1,43 @@
+{
+  "name": "express-typescript-boilerplate",
+  "version": "1.0.0",
+  "private": true,
+  "author": "Canciller",
+  "description": "",
+  "license": "ISC",
+  "scripts": {
+    "postinstall": "husky install",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "start:dev": "NODE_ENV=development ts-node -r tsconfig-paths/register ./src",
+    "start:prod": "NODE_ENV=production ts-node -r tsconfig-paths/register --project ./tsconfig.prod.json ./src",
+    "watch:dev": "nodemon -q --watch src --ext ts --exec \"npm run start:dev\"",
+    "watch:prod": "nodemon -q --watch src --ext ts --exec \"npm run start:prod\"",
+    "build:dev": "npm run clean:dev && tsc",
+    "build:prod": "npm run clean:prod && tsc --project ./tsconfig.prod.json",
+    "build": "npm-run-all build:dev build:prod",
+    "clean:dev": "rimraf ./build/Debug",
+    "clean:prod": "rimraf ./build/Release",
+    "clean": "rimraf ./build",
+    "typecheck": "tsc --noEmit",
+    "lint": "npm run typecheck && eslint --ext .ts .",
+    "lint:fix": "eslint --ext .ts --fix ."
+  },
+  "devDependencies": {
+    "@types/jest": "^27.4.0",
+    "@types/node": "^17.0.8",
+    "@typescript-eslint/eslint-plugin": "^5.9.1",
+    "@typescript-eslint/parser": "^5.9.1",
+    "concurrently": "^7.0.0",
+    "eslint": "^8.6.0",
+    "husky": "^7.0.4",
+    "jest": "^27.4.7",
+    "nodemon": "^2.0.15",
+    "npm-run-all": "^4.1.5",
+    "rimraf": "^3.0.2",
+    "ts-jest": "^27.1.2",
+    "ts-node": "^10.4.0",
+    "tsconfig-paths": "^3.12.0",
+    "typescript": "^4.5.4"
+  }
+}
