@@ -9,19 +9,21 @@
     "postinstall": "husky install",
     "test": "jest",
     "test:watch": "jest --watch",
-    "start:dev": "NODE_ENV=development ts-node -r tsconfig-paths/register ./src",
-    "start:prod": "NODE_ENV=production ts-node -r tsconfig-paths/register --project ./tsconfig.prod.json ./src",
-    "watch:dev": "nodemon -q --watch src --ext ts --exec \"npm run start:dev\"",
-    "watch:prod": "nodemon -q --watch src --ext ts --exec \"npm run start:prod\"",
-    "build:dev": "npm run clean:dev && tsc",
-    "build:prod": "npm run clean:prod && tsc --project ./tsconfig.prod.json",
-    "build": "npm-run-all build:dev build:prod",
-    "clean:dev": "rimraf ./build/Debug",
-    "clean:prod": "rimraf ./build/Release",
+    "start": "NODE_ENV=development ts-node -r tsconfig-paths/register ./src",
+    "watch": "nodemon -q --watch src --ext ts --exec \"npm start\"",
+    "build": "npm run clean && tsc && tsc-alias",
     "clean": "rimraf ./build",
     "typecheck": "tsc --noEmit",
     "lint": "npm run typecheck && eslint --ext .ts .",
     "lint:fix": "eslint --ext .ts --fix ."
+  },
+  "dependencies": {
+    "@types/express": "^4.17.13",
+    "dotenv": "^12.0.3",
+    "express": "^4.17.2",
+    "pino": "^7.6.3",
+    "pino-http": "^6.5.0",
+    "pino-pretty": "^7.3.0"
   },
   "devDependencies": {
     "@types/jest": "^27.4.0",
@@ -36,15 +38,8 @@
     "rimraf": "^3.0.2",
     "ts-jest": "^27.1.2",
     "ts-node": "^10.4.0",
+    "tsc-alias": "^1.5.0",
     "tsconfig-paths": "^3.12.0",
     "typescript": "^4.5.4"
-  },
-  "dependencies": {
-    "@types/express": "^4.17.13",
-    "dotenv": "^12.0.3",
-    "express": "^4.17.2",
-    "pino": "^7.6.3",
-    "pino-http": "^6.5.0",
-    "pino-pretty": "^7.3.0"
   }
 }
